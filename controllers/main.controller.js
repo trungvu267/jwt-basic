@@ -1,9 +1,10 @@
 import CustomAPIError from '../errors/custom-error.js'
 import jwt from 'jsonwebtoken'
 const dashboard = (req, res) => {
+  const { username, id } = req.user
   const luckyNumber = Math.floor(Math.random() * 100)
   res.status(200).json({
-    msg: `Hello, John Done`,
+    msg: `Hello, ${username}`,
     secret: `Her is your authorized data, your lucky number is ${luckyNumber}`,
   })
 }
